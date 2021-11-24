@@ -1,21 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { Provider } from "react-redux";
+import { LogBox } from "react-native";
+LogBox.ignoreAllLogs();
+import store from "./src/store/Store";
 
-export default function App() {
+import MainStack from "./src/navigation/MainStack";
+import AddPhoto from "./src/screens/AddPhoto";
+import Test from "./src/screens/Test";
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      {/* <MainStack /> */}
+      <AddPhoto />
+    </Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
